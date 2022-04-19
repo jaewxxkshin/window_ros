@@ -6,22 +6,13 @@ project(nexus_4wd_mecanum_gazebo)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
-  gazebo_dev
-  nodelet
-  sensor_msgs
+  #gazebo-dev
   nav_msgs
   roscpp
   std_msgs
   std_srvs
   tf
   message_generation
-  gazebo_ros
-  image_transport
-  camera_info_manager
-  tf2_ros
-  rosconsole
-  diagnostic_updater
-  urdf
 )
 
 include_directories(include ${catkin_INCLUDE_DIRS})
@@ -46,15 +37,8 @@ catkin_package(
 ###########
 ## Build ##
 ###########
-add_library(nexus_ros_force_based_move src/nexus_ros_force_based_move.cpp) 
+add_library(nexus_ros_force_based_move src/nexus_ros_force_based_move.cpp)
 target_link_libraries(nexus_ros_force_based_move ${Boost_LIBRARIES} ${GAZEBO_LIBRARIES} ${catkin_LIBRARIES})
-
-
-add_library(realsense_gazebo_plugin src/RealSensePlugin.cpp src/gazebo_ros_realsense.cpp)
-target_link_libraries(realsense_gazebo_plugin ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
-add_dependencies(realsense_gazebo_plugin ${catkin_EXPORTED_TARGETS})
-
-# add_dependencies(nexus_ros_force_based_move ${catkin_EXPORTED_TARGETS})
 
 #############
 ## Install ##
@@ -75,12 +59,6 @@ install(TARGETS
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
-
-install(DIRECTORY meshes
-    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-)
-
-
 
 #############
 ## Testing ##

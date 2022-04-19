@@ -1,13 +1,11 @@
 <?xml version="1.0"?>
 <launch>
-  <env name="GAZEBO_MODEL_PATH" value="${GAZEBO_MODEL_PATH}:$(find nexus_4wd_mecanum_gazebo)/models"/> 
   <arg name="use_sim_time" default="true" />
   <arg name="gui" default="true" />
   <arg name="headless" default="false" />
   <!-- <arg name="world_name" default="$(find nexus_gazebo)/worlds/nexus_4wd_mecanum.world" /> -->
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find nexus_4wd_mecanum_gazebo)/worlds/yellow_line.world"/>
     <arg name="debug" value="0" />
     <arg name="gui" value="$(arg gui)" />
     <arg name="use_sim_time" value="$(arg use_sim_time)" />

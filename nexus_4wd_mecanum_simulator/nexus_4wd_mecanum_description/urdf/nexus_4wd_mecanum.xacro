@@ -1,8 +1,5 @@
 <?xml version="1.0"?>
 <robot name="nexus_4wd_mecanum" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:include filename="$(find nexus_4wd_mecanum_description)/urdf/tracker.xacro"/>
-  <xacro:include filename="$(find nexus_4wd_mecanum_description)/urdf/depthcam.xacro"/>
-
 
   <xacro:property name="PI" value="3.1415926535897931" />
 
@@ -297,13 +294,5 @@
 
   <!-- Include controller plugin for Gazebo -->
   <xacro:include filename="$(find nexus_4wd_mecanum_description)/urdf/nexus_4wd_mecanum.gazebo" />
-  
-<xacro:realsense_d435 sensor_name="d435" parent_link="base_link" rate="10">
-    <origin rpy="0 0 0 " xyz="0.22908 0.09618 0.15"/>
-  </xacro:realsense_d435>
-
-  <xacro:realsense_T265 sensor_name="camera" parent_link="base_link" rate="30.0">
-    <origin rpy="0 0 0" xyz="0.22908 0.09618 0.30"/>
-  </xacro:realsense_T265>
 
 </robot>
